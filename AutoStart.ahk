@@ -21,10 +21,18 @@ SetCapsLockState "Off"
 ; 3. 定义单独按下或组合按下 CapsLock 的行为
 ; * 代表“通配符”，即不管有没有按其他修饰键（除了被上面拦截的 Shift），都触发这里
 ; 在 Windows 10/11 中，Ctrl + Alt + Shift + Win 这个组合键，被系统默认分配给了 Office App（在较新的系统中，它会跳转到 Microsoft 365 或 Copilot）。
+; ^!+#w:打开 Word
+; ^!+#p:打开 PowerPoint
+; ^!+#x:打开 Excel
+; ^!+#o:打开 Outlook
+; ^!+#t:打开 Teams
+; ^!+#n:打开 OneNote
+; ^!+#l:打开 LinkedIn
+; ^!+#y:打开 Yammer
 *CapsLock::
 {
     ; A. 按下阶段：模拟按下 Ctrl+Alt+Shift+Win
-    Send "{Blind}{Ctrl Down}{Alt Down}{Shift Down}{LWin Down}{vkE8}"
+    Send "{Blind}{Ctrl Down}{Alt Down}{Shift Down}"
     
     ; 等待用户松开 CapsLock 键
     KeyWait "CapsLock"
@@ -43,31 +51,28 @@ SetCapsLockState "Off"
 ; --- 自定义你的快捷键 (举例) ---
 
 ; CapsLock + T = 打开终端
-^!+#t::Run "cmd.exe"
+^!+t::Run "cmd.exe"
 
 ; CapsLock + G = 打开 Gemini
-^!+#g::Run "chrome.exe https://gemini.google.com"
+^!+g::Run "chrome.exe https://gemini.google.com"
 
 ; CapsLock + B = 打开 Baidu
-^!+#b::Run "chrome.exe https://baidu.com"
-
-; CapsLock + S = 你的截图工具 (记得你之前问的吗)
-^!+#s::Run "C:\Users\admin\AppData\Local\Microsoft\WindowsApps\SnippingTool.exe"
+^!+b::Run "chrome.exe https://baidu.com"
 
 ; 一键启动截屏软件
-;!n::Run "C:\Windows\System32\SnippingTool.exe"
-!n::Run "C:\Users\admin\AppData\Local\Microsoft\WindowsApps\SnippingTool.exe"
+; CapsLock + S = 你的截图工具 (记得你之前问的吗)
+^!+s::Run "C:\Users\admin\AppData\Local\Microsoft\WindowsApps\SnippingTool.exe"
 
 
 ;一键打开文件夹
-^!+#o:: Run 'explorer "D:\RDC-Soft\trunk\bean\BeanTest"'
+^!+o:: Run 'explorer "D:\GitHub"'
 
 ; 一键关闭WinAppDriver.exe
 ;!k::Run 'taskkill /f /IM "WinAppDriver.exe"'
-^!+#k:: ProcessClose "WinAppDriver.exe"
+^!+k:: ProcessClose "WinAppDriver.exe"
 
 ;一键启动WinAppDriver.exe
-^!+#w:: Run "C:\Program Files (x86)\Windows Application Driver\WinAppDriver.exe"
+^!+w:: Run "C:\Program Files (x86)\Windows Application Driver\WinAppDriver.exe"
 
 ;定义一个函数，用于关闭多个进程
 CloseProcesses()
@@ -85,7 +90,7 @@ CloseProcesses()
 		;MsgBox  ProcessName
 	}
 }
-^!+#a::CloseProcesses()
+^!+a::CloseProcesses()
 
 ;一键启动测试
 ;^!s:: Run "D:\RDC-Soft\trunk\bean\BeanTest\myscript.bat"

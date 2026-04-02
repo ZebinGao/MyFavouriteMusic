@@ -1,6 +1,116 @@
-# MyFavouriteMusic
-个人喜欢的音乐
+# 🎵 MyFavouriteMusic
 
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
+个人喜欢的音乐收藏，收录了约 110 首中外歌曲，涵盖中文、德语、英语、日语、法语、拉丁语等多种语言。
+
+## 📂 项目结构
+
+```
+MyFavouriteMusic/
+├── 音乐/                        # 音乐文件目录
+├── AutoStart.ahk                # AutoHotkey v2 脚本（CapsLock 增强 + 音乐播放）
+├── rename_music_files.py        # Python 脚本（批量去除文件名中的空格）
+├── AutoHotkey_2.0.18_setup.exe  # AutoHotkey v2 安装包
+├── LICENSE                      # MIT 许可证
+└── README.md
+```
+
+## 🎶 音乐收藏
+
+音乐文件存放在 `音乐/` 目录下，命名格式为 `艺术家-歌曲名.mp3`（已去除空格）。
+
+### 收录语言
+
+| 语言 | 代表艺术家 / 歌曲 |
+|------|------------------|
+| 🇨🇳 中文 | 张学友、张韶涵、赵雷、朴树、许巍、萨顶顶、周深…… |
+| 🇩🇪 德语 | Eisblume、Mark Forster、Cro、Unheilig、Philipp Poisel…… |
+| 🇬🇧 英语 | Lady Gaga、Ed Sheeran、Orla Fallon…… |
+| 🇯🇵 日语 | 久石譲、坂本龍一、中島美嘉、VISUALARTS／Key…… |
+| 🇫🇷 法语 | Yikoko（大鱼法语版） |
+| 🇪🇸 拉丁语 | Luis Fonsi - Despacito |
+| 🇷🇺 俄语 | Kuljugin E.V. |
+
+### 部分精选曲目
+
+<details>
+<summary>📖 点击展开曲目列表</summary>
+
+| # | 歌曲 | 艺术家 |
+|---|------|--------|
+| 1 | 喜欢你 | Beyond |
+| 2 | 小夜曲 | Franz Schubert |
+| 3 | 你不是真正的快乐 | G.E.M. 邓紫棋 |
+| 4 | Five Hundred Miles | Orla Fallon |
+| 5 | 梦中的婚礼 | Richard Clayderman |
+| 6 | 僕が死のうと思ったのは | 中島美嘉 |
+| 7 | 幽灵公主 | 久石譲 |
+| 8 | 起风了 | 买辣椒也用券 |
+| 9 | 平凡之路 | 朴树 |
+| 10 | 悟空 | 戴荃 |
+| 11 | 夜空中最亮的星 | 逃跑计划 |
+| 12 | 理想三旬 | 陈鸿宇 |
+| 13 | 万物生 | 萨顶顶 |
+| 14 | 隐形的翅膀 | 张韶涵 |
+| 15 | 蓝莲花 | 许巍 |
+| 16 | 潮鳴り | VISUALARTS／Key |
+| 17 | Amore / Rain / Solitude | 坂本龍一 |
+| 18 | Despacito (Remix) | Luis Fonsi, Daddy Yankee, Justin Bieber |
+| 19 | Schnappi | 鳄鱼宝贝 |
+| 20 | 江苏省泰州中学校歌 | 江苏省泰州中学合唱团 |
+
+> 完整曲目请查看 `音乐/` 目录。
+
+</details>
+
+## 🛠️ 工具说明
+
+### AutoStart.ahk — CapsLock 增强 & 音乐播放
+
+基于 [AutoHotkey v2](https://www.autohotkey.com/) 的增强脚本，主要功能：
+
+#### CapsLock 增强（Hyper Key）
+
+| 快捷键 | 功能 |
+|--------|------|
+| `CapsLock`（单击） | 发送 `Esc` |
+| `Shift + CapsLock` | 切换大写锁定 |
+| `CapsLock + T` | 打开终端 |
+| `CapsLock + G` | 打开 Gemini |
+| `CapsLock + B` | 打开百度 |
+| `CapsLock + S` | 打开截屏工具 |
+| `CapsLock + O` | 打开 GitHub 文件夹 |
+| `CapsLock + W` | 启动 WinAppDriver |
+| `CapsLock + K` | 关闭 WinAppDriver |
+| `CapsLock + A` | 批量关闭模拟器进程 |
+
+#### 🎵 音乐播放快捷键
+
+脚本启动时会创建一个后台 Windows Media Player COM 对象，音量初始为 20%。
+
+| 快捷键 | 功能 |
+|--------|------|
+| `CapsLock + P` | 随机播放 `音乐/` 目录中的一首歌 |
+| `CapsLock + L` | 停止播放 |
+| `CapsLock + Space` | 暂停 / 继续 |
+
+#### 使用方法
+
+1. 安装 AutoHotkey v2（可使用项目中的 `AutoHotkey_2.0.18_setup.exe`）
+2. 双击运行 `AutoStart.ahk`（或将其放入开机启动文件夹）
+
+---
+
+### rename_music_files.py — 批量去除文件名空格
+
+将 `音乐/` 目录下所有音频文件名中的空格去除。
+
+```bash
+python rename_music_files.py
+```
+
+支持格式：`.mp3`、`.m4a`、`.wav`、`.flac`、`.ogg`
 
 # 常用快捷键
 
@@ -50,3 +160,13 @@
 - Ctrl + /	注释/取消注释
 - Ctrl + G	跳转到行	报错说“Error at line 85”，按 Ctrl+G 输入 85 回车，直接飞过去。
 - Ctrl + Enter	在下方插入新行	不管你光标在当前行的中间还是末尾，按这个直接在下面开一行，不需要先按 End 再按 Enter。
+
+
+## ⚠️ 注意事项
+
+- 本仓库中的音乐文件仅供个人学习与收藏使用，请勿用于商业用途。
+- 如涉及版权问题，请联系仓库所有者处理。
+
+## 📄 许可证
+
+本项目代码部分采用 [MIT License](LICENSE) 开源许可。音乐文件版权归原作者所有。
